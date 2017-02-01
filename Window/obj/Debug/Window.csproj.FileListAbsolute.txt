@@ -1,0 +1,2 @@
+c:\users\marc\documents\visual studio 2015\Projects\Window\Window\bin\Debug\Window.exe.config
+c:\users\marc\documents\visual studio 2015\Projects\Window\Window\bin\Debug\BenWindow.exe.config
