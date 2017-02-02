@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using System.Drawing;
 
 namespace BenWindow {
     /// <summary>
@@ -14,13 +15,15 @@ namespace BenWindow {
             this.Left = SystemParameters.WorkArea.Left;
 
             this.Loaded += async delegate {
-                await Task.Delay(250);
+                await Task.Delay(250);                                
                 toast.Visibility = Visibility.Visible;
 
                 //REMOVE THIS
                 await Task.Delay(1000);
-                toast.Show("Hallo!");
-            };
+                toast.Show("Hallo!", System.TimeSpan.FromMilliseconds(5000));
+                await Task.Delay(5500);
+                this.Close();
+            };            
         }
     }
 }
