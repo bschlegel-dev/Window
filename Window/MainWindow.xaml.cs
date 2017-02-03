@@ -37,7 +37,7 @@ namespace BenWindow
             HotKeyManager.RegisterHotKey(Keys.D1, 0);
             HotKeyManager.RegisterHotKey(Keys.D2, 0);
             HotKeyManager.RegisterHotKey(Keys.D3, 0);
-            HotKeyManager.RegisterHotKey(Keys.C, KeyModifiers.Control);
+            //HotKeyManager.RegisterHotKey(Keys.C, KeyModifiers.Control);
             HotKeyManager.RegisterHotKey(Keys.NumPad1, 0);
             HotKeyManager.RegisterHotKey(Keys.NumPad2, 0);
             HotKeyManager.RegisterHotKey(Keys.NumPad3, 0);
@@ -53,29 +53,29 @@ namespace BenWindow
             System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
                 if (e.Key == Keys.D1)
-                {
-                    string a = System.Windows.Clipboard.GetText();
+                {                                        
                     SendKeys.SendWait("^c");
                     SendKeys.SendWait("^c");
-                    SendKeys.SendWait("^c");
-                    c[0] = System.Windows.Clipboard.GetText();
-                    ShowToast("'"+c[0]+"' was coppied to your Clipboard!", 3500);
-                    ShowToast("'"+a+"' was in the Clipboard before!", 1000);
+                    SendKeys.Flush();
+                    c[0] = System.Windows.Forms.Clipboard.GetText();
+                    System.Windows.Clipboard.Clear();
+                    ShowToast("'"+c[0]+"' was coppied to your Clipboard!", 3500);                    
                 }
                 if (e.Key == Keys.D2)
-                {
+                {                    
                     SendKeys.SendWait("^c");
                     SendKeys.SendWait("^c");
-                    SendKeys.SendWait("^c");
-                    c[1] = System.Windows.Clipboard.GetText();
-                    ShowToast("'" + c[1] + "' was coppied to your Clipboard!", 3500);
+                    SendKeys.Flush();
+                    c[1] = System.Windows.Clipboard.GetText();                    
+                    System.Windows.Clipboard.Clear();
+                    ShowToast("'" + c[1] + "' was coppied to your Clipboard!", 3500);                    
                 }
                 if (e.Key == Keys.D3)
                 {
-                    SendKeys.SendWait("^c");
-                    SendKeys.SendWait("^c");
-                    SendKeys.SendWait("^c");
+                    SendKeys.Send("^c");                    
+                    SendKeys.Flush();
                     c[2] = System.Windows.Clipboard.GetText();
+                    System.Windows.Clipboard.Clear();
                     ShowToast("'" + c[2] + "' was coppied to your Clipboard!", 3500);
                 }
                 if (e.Key == Keys.NumPad1)
@@ -112,11 +112,12 @@ namespace BenWindow
                     s += ", " + c.Length;
                     System.Windows.Clipboard.SetText(s);
                     SendKeys.SendWait("^v");
-                }
+                }  
+                /**             
                 if(e.Key == Keys.C && e.Modifiers == KeyModifiers.Control)
-                {
-                    ShowToast("'"+System.Windows.Clipboard.GetText()+"' was coppied to your Clipboard!", 3500);
-                }
+                {                    
+                    ShowToast("Something' was coppied to your Clipboard!", 3500);
+                }**/
             });
         }
     }
