@@ -12,14 +12,14 @@
     <Grid>
 
         <toast:Toasty x:Name="toast"
-            Height="23"
+            Height="30"
             VerticalAlignment="Bottom"
             Duration="0:0:0:3.3"
             Message="Unfortunately I was too stupid to put a Message here."
             FontFamily="Segoe UI"
             FontWeight="Bold"
-            MessageColor="Red"
-            Background="Cyan"
+            MessageColor="White"
+            Background="#007ACC"
             FontSize="13"
             Visibility="Collapsed"/>
     </Grid>
