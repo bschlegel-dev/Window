@@ -9,6 +9,8 @@ namespace BenWindow {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+
+            //Toast Stuff
             this.Width = SystemParameters.WorkArea.Width;
             this.Height = SystemParameters.WorkArea.Height;
             this.Top = SystemParameters.WorkArea.Top;
@@ -17,12 +19,10 @@ namespace BenWindow {
             this.Loaded += async delegate {
                 await Task.Delay(250);                                
                 toast.Visibility = Visibility.Visible;
-
+                    
                 //REMOVE THIS
                 await Task.Delay(1000);
-                toast.Show("Hallo!", System.TimeSpan.FromMilliseconds(5000));
-                await Task.Delay(5500);
-                this.Close();
+                toast.Show("Hallo!", System.TimeSpan.FromMilliseconds(5000));                
             };            
         }
     }
